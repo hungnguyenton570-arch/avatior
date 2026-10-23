@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>May Bay Arcade</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,Arial,sans-serif}*{box-sizing:border-box}
+body{margin:0;background:#0b1020;color:#f5f7ff;min-height:100vh;display:grid;place-items:center;padding:20px}
+main{width:min(760px,100%)}.panel{background:#151d32;border:1px solid #2c3857;border-radius:18px;padding:22px;margin:14px 0}
+h1{margin:0 0 6px;font-size:clamp(28px,5vw,42px)}p{color:#b9c5e3;line-height:1.5}
+.row{display:flex;gap:10px;flex-wrap:wrap}input,button{font:inherit;border-radius:10px;padding:12px;border:1px solid #425174}
+input{background:#0d1427;color:white;flex:1;min-width:180px}button{cursor:pointer;background:#70e1c1;color:#082019;font-weight:700;border:0}
+button.secondary{background:#263452;color:#f5f7ff;border:1px solid #425174}
+#plane{font-size:54px;text-align:center;transition:transform .2s}#score{font-size:34px;font-weight:800;color:#70e1c1}
+small{color:#aab7d8}.notice{min-height:24px;color:#ffd27d}.leader{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #2c3857}
+</style>
+</head>
+<body><main>
+  <h1>✈️ May Bay Arcade</h1>
+  <p>Game phản xạ giải trí bằng điểm thành tích — không cược, không mua điểm, không mất điểm.</p>
+  <section class="panel">
+    <h2>Người chơi</h2>
+    <div class="row"><input id="nickname" maxlength="20" placeholder="Nhập biệt danh (2–20 ký tự)"><button id="join">Vào chơi</button></div>
+    <p id="playerInfo">Nhập biệt danh để bắt đầu.</p>
+    <small>Điểm được lưu trên máy chủ. Biệt danh không phải tài khoản bảo mật.</small>
+  </section>
+  <section class="panel">
+    <div id="plane">✈️</div>
+    <h2>Thử thách phản xạ</h2>
+    <p>Khi nhấn bắt đầu, chờ máy bay đổi trạng thái rồi nhấn “Bay!”. Bạn nhận điểm thành tích khi phản xạ đúng.</p>
+    <div class="row"><button class="secondary" id="start">Bắt đầu lượt</button><button id="fly" disabled>Bay!</button></div>
+    <p id="status">Sẵn sàng khi bạn muốn chơi.</p><p>Điểm của bạn: <span id="score">0</span></p>
+    <div class="notice" id="notice" aria-live="polite"></div>
+  </section>
+  <section class="panel">
+    <div class="row" style="align-items:center;justify-content:space-between"><h2>Bảng thành tích</h2><button class="secondary" id="refresh">Làm mới</button></div>
+    <div id="leaderboard">Chưa có dữ liệu.</div>
+  </section>
+</main>
+<script src="/game.js"></script>
+</body></html>
